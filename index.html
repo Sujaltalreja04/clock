@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .clock-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .clock {
+      border: 2px solid #333;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+    }
+  </style>
+  <title>World Clock</title>
+</head>
+<body>
+  <div class="clock-container">
+    <div class="clock" id="clock1"></div>
+    <div class="clock" id="clock2"></div>
+    <div class="clock" id="clock3"></div>
+    <div class="clock" id="clock4"></div>
+    <div class="clock" id="clock5"></div>
+    <div class="clock" id="clock6"></div>
+    <div class="clock" id="clock7"></div>
+    <div class="clock" id="clock8"></div>
+    <div class="clock" id="clock9"></div>
+    <div class="clock" id="clock10"></div>
+    <div class="clock" id="clock11"></div>
+    <div class="clock" id="clock12"></div>
+    <div class="clock" id="clock13"></div>
+    <div class="clock" id="clock14"></div>
+    <div class="clock" id="clock15"></div>
+    <div class="clock" id="clock16"></div>
+    <div class="clock" id="clock17"></div>
+    <div class="clock" id="clock18"></div>
+    <div class="clock" id="clock19"></div>
+    <div class="clock" id="clock20"></div>
+  </div>
+
+  <script>
+    function updateClocks() {
+      const cities = [
+        { name: 'New York', timeZone: 'America/New_York' },
+        { name: 'Los Angeles', timeZone: 'America/Los_Angeles' },
+        { name: 'London', timeZone: 'Europe/London' },
+        { name: 'Paris', timeZone: 'Europe/Paris' },
+        { name: 'Tokyo', timeZone: 'Asia/Tokyo' },
+        { name: 'Mumbai', timeZone: 'Asia/Kolkata' },
+        { name: 'Beijing', timeZone: 'Asia/Shanghai' },
+        { name: 'Vancouver', timeZone: 'America/Vancouver' },
+        { name: 'Nuuk', timeZone: 'America/Godthab' },
+        { name: 'Copenhagen', timeZone: 'Europe/Copenhagen' },
+        { name: 'Colombo', timeZone: 'Asia/Colombo' },
+        // Add more cities as needed
+      ];
+
+      cities.forEach((city, index) => {
+        const options = { timeZone: city.timeZone };
+        const time = new Date().toLocaleTimeString('en-US', options);
+        document.getElementById(`clock${index + 1}`).innerText = `${city.name}\n${time}`;
+      });
+    }
+
+    setInterval(updateClocks, 1000);
+    updateClocks();
+  </script>
+</body>
+</html>
